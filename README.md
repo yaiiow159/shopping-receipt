@@ -6,6 +6,12 @@
 針對Controller層、service層、dao層、entity都有進行特定單元測試確保流程正常 <br>
 金額、稅金、稅率等金錢相關換算資料使用BigDecimal提升精確度避免換算時造成金額落差
 
+#### V2 修正問題
+修正 entity類別 @NotEmpty註解使用錯誤 改為使用@NotNull判斷非空 <br>
+修正 taxRate預設值錯誤問題，使用小數位來表示避免運算錯誤 <br>
+修正 roundedUp工具類方法 運算錯誤問題 並添加單元測試確認正確性 <br>
+修正 前端頁面下拉式選單 reset問題
+
 <hr>
 
 #### 後端使用技術: springboot 、spring-data-jdbc <br>
@@ -18,10 +24,10 @@
 ### 畫面預覽:
 
 #### 初始畫面:
-![商品換算器](https://github.com/yaiiow159/shopping-receipt/assets/39752246/a9e24b73-f8c4-44e0-9357-311bb2691c2f)
+![商品收據產生器](https://github.com/yaiiow159/shopping-receipt/assets/39752246/b2241da7-773a-44d0-a37c-2b01cc021d2b)
 
 #### 單一商品換算
-![單一商品換算](https://github.com/yaiiow159/shopping-receipt/assets/39752246/411f7c5f-7308-4858-ada4-68bc5ab531a0)
+![單一商品換算](https://github.com/yaiiow159/shopping-receipt/assets/39752246/4aed3563-ff5c-48a2-a0cd-b82cd01721dd)
 
 #### 總商品換算
-![總商品換算](https://github.com/yaiiow159/shopping-receipt/assets/39752246/0718c7bf-db3e-4494-b282-2bae7232942f)
+![商品總換算](https://github.com/yaiiow159/shopping-receipt/assets/39752246/8164571f-acdf-46ce-87f0-1966f6e9fa38)
