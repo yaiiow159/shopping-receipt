@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class BigDecimalUtil {
-
     public static BigDecimal add(BigDecimal a, BigDecimal b) {
         return a.add(b);
     }

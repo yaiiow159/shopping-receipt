@@ -11,9 +11,7 @@ import com.timmy.shoppingreceipt.service.ShoppingService;
 
 import com.timmy.shoppingreceipt.vo.BasicOutput;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
@@ -22,7 +20,6 @@ import java.util.List;
 
 import static com.timmy.shoppingreceipt.util.BigDecimalUtil.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.ArgumentMatchers.any;
 
 @SpringBootTest
@@ -82,7 +79,7 @@ public class ServiceTest {
         product.setLocationId(0);
 
         Mockito.when(locationDao.getLocationById(product.getLocationId())).thenReturn(null);
-        Mockito.when(shoppingReceiptDao.calculateAndPrint(any(Product.class))).thenReturn(List.of(basicOutput));
+        Mockito.when(shoppingReceiptDao.calculateAndPrintAll()).thenReturn(List.of(basicOutput));
         Mockito.when(productDao.checkTaxIsZero(any(Product.class))).thenReturn(false);
         Mockito.when(shoppingService.calculateAndPrint(any(Product.class))).thenReturn(List.of(basicOutput));
 

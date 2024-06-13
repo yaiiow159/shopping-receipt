@@ -33,7 +33,7 @@ public class ShoppingServiceImpl implements ShoppingService {
     public List<BasicOutput> calculateAndPrint(Product product) {
         Location location = locationDao.getLocationById(product.getLocationId());
         if(ObjectUtils.isEmpty(location)) {
-            List<BasicOutput> basicOutputs = shoppingReceiptDao.calculateAndPrint(product);
+            List<BasicOutput> basicOutputs = shoppingReceiptDao.calculateAndPrintAll();
             for (BasicOutput basicOutput: basicOutputs) {
                 createInfo(product, basicOutput);
             }

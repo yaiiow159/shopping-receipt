@@ -3,9 +3,11 @@ package com.timmy.shoppingreceipt;
 import com.timmy.shoppingreceipt.dao.CategoryDao;
 import com.timmy.shoppingreceipt.dao.LocationDao;
 import com.timmy.shoppingreceipt.dao.ProductDao;
+import com.timmy.shoppingreceipt.dao.ShoppingReceiptDao;
 import com.timmy.shoppingreceipt.entity.Category;
 import com.timmy.shoppingreceipt.entity.Location;
 import com.timmy.shoppingreceipt.entity.Product;
+import com.timmy.shoppingreceipt.vo.BasicOutput;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class DaoTest {
@@ -27,6 +28,9 @@ public class DaoTest {
 
     @Autowired
     private ProductDao productDao;
+
+    @Autowired
+    private ShoppingReceiptDao shoppingReceiptDao;
 
     @Test
     public void test_getEntityById() {
@@ -46,5 +50,11 @@ public class DaoTest {
         assertNotNull(locations);
         assertNotNull(categories);
         assertNotNull(products);
+    }
+
+    @Test
+    public void test_calculateAndPrint() {
+        List<BasicOutput> basicOutputs = shoppingReceiptDao.calculateAndPrintAll();
+        assertNotNull(basicOutputs, "basicOutputs should not be null");
     }
 }

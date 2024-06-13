@@ -1,9 +1,9 @@
 package com.timmy.shoppingreceipt.entity;
 
 import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
-import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serial;

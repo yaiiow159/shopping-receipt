@@ -34,7 +34,7 @@ public class ShoppingReceiptDaoImpl implements ShoppingReceiptDao {
         }
     }
     @Override
-    public List<BasicOutput> calculateAndPrint(Product product) {
+    public List<BasicOutput> calculateAndPrintAll() {
         String sql = "SELECT product.name AS productName,category.name AS categoryName,location.name AS locationName, tax_rate, quantity, price FROM shopping_receipt.product " +
                 "INNER JOIN shopping_receipt.location ON product.location_id = location.id " +
                 "INNER JOIN shopping_receipt.category ON product.category_id = category.id ";
