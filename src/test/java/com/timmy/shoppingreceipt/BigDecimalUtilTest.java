@@ -8,11 +8,8 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RoundedUpTest {
+public class BigDecimalUtilTest {
 
-    /**
-     * 確認 四捨五入 正確 必且能正確改變為0.05倍數
-     */
     @Test
     public void test_roundUp() {
         BigDecimal tax = new BigDecimal("1.03");
@@ -26,9 +23,21 @@ public class RoundedUpTest {
         assertEquals(new BigDecimal("1.05"), roundedTax);
         assertEquals(new BigDecimal("1.15"), roundedTax1);
         assertEquals(new BigDecimal("2.25"), roundedTax2);
+    }
 
-        System.out.println("roundedTax = " + roundedTax);
-        System.out.println("roundedTax1 = " + roundedTax1);
-        System.out.println("roundedTax2 = " + roundedTax2);
+    @Test
+    public void test_countSubTotal() {
+        BigDecimal price = new BigDecimal("100");
+        Integer quantity = 21;
+        BigDecimal subTotal = BigDecimalUtil.countSubTotal(price, quantity);
+        assertEquals(new BigDecimal("2100"), subTotal);
+    }
+
+    @Test
+    public void test_countTotal() {
+        BigDecimal subTotal = new BigDecimal("2100");
+        BigDecimal tax = new BigDecimal("100");
+        BigDecimal total = BigDecimalUtil.countTotal(subTotal, tax);
+        assertEquals(new BigDecimal("2200"), total);
     }
 }
