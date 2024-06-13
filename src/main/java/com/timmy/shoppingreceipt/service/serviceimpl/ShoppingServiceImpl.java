@@ -51,7 +51,7 @@ public class ShoppingServiceImpl implements ShoppingService {
         if(!productDao.checkTaxIsZero(basicOutput)) {
             basicOutput.setTax(BigDecimal.ZERO);
         } else {
-            basicOutput.setTax(rounded(
+            basicOutput.setTax(roundedUp(
                     basicOutput.getTaxRate()
                             .multiply(product.getPrice())
                             .multiply(BigDecimal.valueOf(product.getQuantity()))));
@@ -66,7 +66,7 @@ public class ShoppingServiceImpl implements ShoppingService {
         if(!productDao.checkTaxIsZero(basicOutput)) {
             basicOutput.setTax(BigDecimal.ZERO);
         } else {
-            basicOutput.setTax(rounded(
+            basicOutput.setTax(roundedUp(
                     location.getTaxRate()
                             .multiply(product.getPrice())
                             .multiply(BigDecimal.valueOf(product.getQuantity()))));

@@ -3,6 +3,7 @@ package com.timmy.shoppingreceipt.entity;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
@@ -23,6 +24,6 @@ public class Location implements Serializable {
     private int id;
     @NotBlank(message = "地點名稱不得為空")
     private String name;
-    @NotEmpty(message = "稅率不得為空")
+    @NotNull(message = "商品數量不得為空")
     private BigDecimal taxRate;
 }

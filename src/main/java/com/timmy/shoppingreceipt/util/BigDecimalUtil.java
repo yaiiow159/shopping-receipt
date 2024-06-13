@@ -13,8 +13,10 @@ public class BigDecimalUtil {
     }
 
 
-    public static BigDecimal rounded(BigDecimal tax) {
-        return tax.setScale(2, RoundingMode.HALF_UP);
+    public static BigDecimal roundedUp(BigDecimal tax) {
+        BigDecimal multiplied = tax.multiply(BigDecimal.valueOf(20));
+        BigDecimal roundedTax = multiplied.setScale(0, RoundingMode.CEILING);
+        return roundedTax.divide(BigDecimal.valueOf(20), 2, RoundingMode.UNNECESSARY);
     }
 
     public static BigDecimal countSubTotal(BigDecimal price, Integer quantity) {

@@ -20,12 +20,12 @@ CREATE TABLE location (
   tax_rate DECIMAL(5, 4) NOT NULL
 );
 
-INSERT INTO location (name, tax_rate) VALUES('CALIFORNIA', 9.75);
-INSERT INTO location (name, tax_rate) VALUES('NEW YORK', 8.75);
-INSERT INTO location (name, tax_rate) VALUES('TEXAS', 7.75);
-INSERT INTO location (name, tax_rate) VALUES('FLORIDA', 6.75);
-INSERT INTO location (name, tax_rate) VALUES('HAWAII', 5.75);
-INSERT INTO location (name, tax_rate) VALUES('ALASKA', 4.75);
+INSERT INTO location (name, tax_rate) VALUES('CALIFORNIA', 0.0975);
+INSERT INTO location (name, tax_rate) VALUES('NEW YORK', 0.0875);
+INSERT INTO location (name, tax_rate) VALUES('TEXAS', 0.0775);
+INSERT INTO location (name, tax_rate) VALUES('FLORIDA', 0.0675);
+INSERT INTO location (name, tax_rate) VALUES('HAWAII', 0.0575);
+INSERT INTO location (name, tax_rate) VALUES('ALASKA', 0.0475);
 
 DROP TABLE IF EXISTS product;
 CREATE TABLE product (
