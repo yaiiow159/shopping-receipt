@@ -7,6 +7,7 @@ import com.timmy.shoppingreceipt.service.ShoppingService;
 import com.timmy.shoppingreceipt.vo.BasicOutput;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -39,7 +40,7 @@ public class ShoppingController {
 
     @PostMapping("/receipt")
     @ResponseBody
-    public List<BasicOutput> receipt(@RequestBody Product product) {
+    public List<BasicOutput> receipt(@Validated @RequestBody Product product) {
         return shoppingService.calculateAndPrint(product);
     }
 }
